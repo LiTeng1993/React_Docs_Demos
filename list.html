@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+<script src="build/react.js"></script>
+<script src="build/react-dom.js"></script>
+<script src="build/browser.min.js"></script>
+<div id="root-1"></div>
+<div id="root-2"></div>
+<script type="text/babel">
+  /*
+    // 渲染多个组件
+    const numbers = [1, 2, 3, 4, 5];
+    const listItems = numbers.map((number) =>
+        <li>{number}</li>
+    );
+    ReactDOM.render(
+        <ul>{listItems}</ul>,
+        document.getElementById("root")
+    )
+    */
+
+    // list component
+    function NumberList(props) {
+        const numbers = props.numbers;
+        const listItems = numbers.map((number) =>
+            <li key={number.toString()}>{number}</li>
+        );
+        return (
+            <ul>{listItems}</ul>
+        );
+    }
+    const numbers = [1, 2, 3, 4, 5];
+    ReactDOM.render(
+        <NumberList numbers={numbers} />,
+        document.getElementById("root-2")
+    )
+
+/*
+
+    function ListItem(props) {
+        // 不必指定key
+        return <li>props.value</li>;
+    }
+    function NumberList(props) {
+        const numbers = props.numbers;
+        const listItems = numbers.map((number) =>
+            // 在数组内指定key
+            <ListItem key={number.toString()} value={number} />
+        );
+        return (
+            <ul>
+                {listItems}
+            </ul>
+        );
+    }
+*/
+
+</script>
+</body>
+</html>
