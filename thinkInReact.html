@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="build/react.js"></script>
+    <script src="build/react-dom.js"></script>
+    <script src="build/browser.min.js"></script>
+</head>
+<body>
+    <div id="root"></div>
+<script type="text/babel">
+    class SearchBar extends React.Component {
+        render() {
+            return (
+                <form action="">
+                    <input type="search" name="" id=""/>
+                    <label>
+                        <input type="checkbox" />
+                        Only show products in stock
+                    </label>
+                </form>
+            )
+        }
+    }
+    class ProductRow extends React.Component {
+        constructor(props) {
+            super(props);
+            this.state = { };
+        }
+        render() {
+            return (
+                <tr>
+                    <td>Football</td><td>$49.99</td>
+                </tr>
+            )
+        }
+    }
+    class ProductCategoryRow extends React.Component {
+        constructor(props) {
+            super(props);
+            this.state = { };
+        }
+        render() {
+            return (
+                <tr colspan="2">
+                    <th>Sporting Goods</th>
+                </tr>
+            )
+        }
+    }
+    class ProductTable extends React.Component {
+        constructor(props){
+            super(props);
+            this.state = { };
+        }
+        render() {
+            return (
+                <table>
+                    <thead>
+                        <tr>
+                            <td>name</td><td>prices</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <ProductCategoryRow/>
+                        <ProductRow/>
+                    </tbody>
+
+                </table>
+            )
+        }
+    }
+    class FilterTable extends React.Component {
+        constructor(props) {
+            super(props);
+            this.state = { };
+        }
+        render() {
+            return (
+                <div>
+                    <SearchBar />
+                    <ProductTable />
+                </div>
+            )
+        }
+
+    }
+    ReactDOM.render(
+        <FilterTable/>,
+        document.getElementById("root")
+    )
+</script>
+</body>
+</html>
